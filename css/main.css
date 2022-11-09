@@ -269,12 +269,12 @@ html {
     background-color:#FFD8DB;
 }
 
-
+#layout {
+    flex-direction: row-reverse;
+}
 
 @media screen and (min-width: 768px) {
-    #systems div {
-        justify-content: center;
-    }
+   
 
 
 }
@@ -286,16 +286,39 @@ html {
 
 /* ----- Images----- */
 
-#img-hero{
-    background: url(../img/balloons-hero.jpg) center center no-repeat;
+#bg-hero .wrapper {
+    background: url(../img/balloons-hero.jpg) no-repeat;
     padding: 6rem 0;
     -webkit-background-size: cover;
     -o-background-size: cover; 
     -ms-background-size: cover; 
     -moz-background-size: cover;
     background-size: cover;
-    width: 100%;
 }
+
+#rainbow-bg {
+    background: url(../img/balloons-rainbow.jpg) no-repeat;
+    -webkit-background-size: contain;
+    -o-background-size: contain; 
+    -ms-background-size: contain; 
+    -moz-background-size: contain;
+    background-size: contain;
+    background-clip: content-box;
+}
+
+
+@media screen and (min-width: 768px) {
+    #bg-hero .wrapper {
+    -webkit-background-size: contain;
+    -o-background-size: contain; 
+    -ms-background-size: contain; 
+    -moz-background-size: contain;
+    background-size: contain;
+    }
+
+}
+
+
 
 
 /*--------------------------------------------------------------
