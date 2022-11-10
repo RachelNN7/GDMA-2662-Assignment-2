@@ -9,22 +9,23 @@
         -Universal
 4.0 - Elements: styling for bare/generic HTML elements 
         - Typography: Headings, Paragraphs, Blockquotes, Anchors
+        -footer
+        -media quiery
 5.0 - Objects: class-based selectors which define undecorated design patterns, building blocks
         - Framework
 6.0 - Components: specific designed components
-        -img
+        -groups
+        -imgages
         -content
+        -nav
+        -footer
+        -media quiery
 7.0 - Utilities: utilities and helper classes with ability to override anything which goes before in the triangle, eg. hide helper class
-        - alignment	 
-        - screen reader   
+        - alignment	  
 --------------------------------------------------------------*/
-
-
-
 /*--------------------------------------------------------------
     3.0 - GENERIC
 -------------------------------------------------------------- */
-
 /* ----- UNIVERSAL ----- */
 *, 
 *:after,
@@ -43,20 +44,6 @@ html {
     font-family: 'Roboto Slab', serif;
 }
 
-@media screen and (min-width: 768px) {
-
-    html {
-
-    }
-}
-
-@media screen and (min-width: 1024px) {
-
-    html {
-
-    }
-}
-
 
 /*--------------------------------------------------------------
     4.0 - ELEMENTS
@@ -68,7 +55,7 @@ h2 {
 
 h2,
 h3 {
-    margin-bottom: 0;
+    margin: 0;
 }
 
 h1,
@@ -77,8 +64,13 @@ h3 {
     color: #00b0a3;
 }
 
+i,
+#systems .row section div:first-child {
+    text-align: center;
+}
 
-/*------ Typography------- */
+
+/*------Typography------- */
 h1 {
     font-size: 3.6rem;
     margin: 0 0 .4em 0;
@@ -91,7 +83,7 @@ h2 {
 }
 
 p {
-    margin-top: .6rem;
+    margin-top: .4em;
     line-height: 1.8rem;
 }
 
@@ -100,13 +92,33 @@ i {
     margin-top: 1rem;
 }
 
-i,
-#systems .row section div:first-child {
+
+/*------footer------- */
+footer {
+    border-top: #FFD8DB solid 4px;
+}
+
+footer p {
+    margin: 0;
+    font-weight: 700;
+}
+
+footer p:last-child { 
+    margin: 0 0 4em 0;
+    font-size: .8rem;
+}
+
+footer img {
+    margin-top: 2em;
+    width: 85px;
+}
+
+footer div > div {
     text-align: center;
 }
 
 
-
+/*------media quiery------- */
 @media screen and (min-width: 768px) {
     h1 {
         font-size: 4.3rem;
@@ -114,15 +126,10 @@ i,
 
 }
 
-@media screen and (min-width: 1024px) {
-
-}
-
 
 /*--------------------------------------------------------------
     5.0 - Objects
 -------------------------------------------------------------- */
-
 /* ----- Framework ----- */
 .wrapper {
     width: 95%;
@@ -311,14 +318,48 @@ i,
 /*--------------------------------------------------------------
     6.0 - COMPONENTS
 -------------------------------------------------------------- */
+/* -----groups----- */
+#benefits,
+#bg-box,
+#bg-hero  {
+    text-align: center;
+}
+
+#systems,
+#benefits,
+#layout,
+#testing  {
+    margin-top: 3em;
+}
+
+
 /* ----- content----- */
-#fixed img {
-    margin-top: 1.5em;
+#fixed {
+    background-color: #fff;
+    border-bottom: #FFD8DB solid 4px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
 }
 
 #bg-hero {
     background-color:#FFD8DB;
-    text-align: center;
+    padding-top: 7em;
+}
+
+#layout {
+    flex-direction: row-reverse;
+}
+
+#bg-box {
+    background-color: #FFD8DB;
+    padding: 1.5rem;
+    margin: 4em 0;
+}
+
+#fixed img {
+    margin-top: 1.5em;
 }
 
 #bg-hero div div {
@@ -331,32 +372,21 @@ i,
     margin: 0;
 }
 
-#layout {
-    flex-direction: row-reverse;
-}
-
-#bg-box {
-    background-color: #FFD8DB;
-    text-align: center;
-    padding: 1.5rem;
-    margin: 0;
-}
-
 #bg-box h2 {
     font-size: 1.8rem;
 }
 
-#layout h2,
 #layout h3 {
     margin-top: 0;
 }
 
-
-
+#benefits i {
+    font-size: 3rem;
+    margin-top: 1em;
+}
 
 
 /* ----- Images----- */
-
 #bg-hero .wrapper {
     background: url(../img/balloons-hero.jpg) no-repeat;
     padding: 6rem 0;
@@ -406,19 +436,28 @@ header li {
     display: inline-block;
 }
 
-#benefits {
-    text-align: center;
+
+/* -----footer----- */
+footer li {
+    margin-bottom: .8em;
+}
+
+footer nav {
+    margin-top: 1em;
 }
 
 
 /* -----Media query----- */
 @media screen and (min-width: 768px) {
 
-    #fixed img {
-        width: 110px;
-        margin-top: .5em;
+    #benefits > div:last-child,
+    footer ul,
+    footer div div {
+        text-align: left;
     }
 
+
+    /* -----img----- */
     #bg-hero .wrapper {
     -webkit-background-size: contain;
     -o-background-size: contain; 
@@ -427,26 +466,42 @@ header li {
     background-size: contain;
     }
 
+
+    /* -----content----- */
     #fixed > .col-center {
         justify-content: space-between;
+    } 
+
+    #fixed img {
+        width: 110px;
+        margin-top: .5em;
     }
 
-    header ul {
-        text-align: right;
+    #bg-box {
+        margin: 0;
     }
 
     #systems > div {
         text-align: center;
     }
 
-    #benefits > div:last-child {
-        text-align: left;
+    #benefits i {
+        margin-top: .5em;
+    }
+
+
+    /* -----nav----- */
+    header ul {
+        text-align: right;
+    }
+    
+
+    /* -----footer----- */
+    footer .row {
+        flex-direction: row-reverse;
     }
 
 }
-
-
-
 
 
 /*--------------------------------------------------------------
@@ -456,14 +511,3 @@ header li {
 .col-center {
     justify-content: center;
  }
-
-
- /*-----  screen reader -----  */
- .sr-only {
-    position:absolute;
-    left:-10000px;
-    top:auto;
-    width:1px;
-    height:1px;
-    overflow:hidden;
-}
