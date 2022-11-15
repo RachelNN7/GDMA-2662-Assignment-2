@@ -24,7 +24,7 @@ function handleTabletChange(e) {
                 // Only prevent default if animation is actually gonna happen
                 event.preventDefault();
                 $('html, body').animate({
-                scrollTop: target.offset().top-150
+                scrollTop: target.offset().top-180
                 }, 1000, function() {
                 // Callback after animation
                 // Must change focus!
@@ -64,7 +64,7 @@ function handleTabletChange(e) {
                 // Only prevent default if animation is actually gonna happen
                 event.preventDefault();
                 $('html, body').animate({
-                scrollTop: target.offset().top-108
+                scrollTop: target.offset().top-126
                 }, 1000, function() {
                 // Callback after animation
                 // Must change focus!
